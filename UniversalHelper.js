@@ -42,6 +42,15 @@ var UniversalHelper = (function () {
         window.location.assign(data);
     }
 
+    /// Function used for generate internal exceptions into library
+    /// Usage: 
+    ///
+    /// internalException = new InternalException(agent + " is not defined.");
+    /// throw internalException;
+    function InternalException(message) {
+       throw message; 
+    }
+
     return (this);
 
 }).call({});
