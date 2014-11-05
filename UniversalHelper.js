@@ -32,15 +32,22 @@ var UniversalHelper = (function () {
         }
     }
 
-    this.slideOut = function (selector){
-        $(selector).animate({ "left": "-=500px" }, "fast", "easein" );
-        $(selector).fadeIn(100);
-    }
-
     this.hideElements = function (selectors) {
         for (var i = 0; i < selectors.length; i++) {
             $(selectors[i]).hide();
         }
+    }
+
+    this.slideOut = function (selector){
+        $(selector).animate({ "left": "-500px" }, { duration: 500, queue: false }, "easeOutExpo" );
+        $(selector).fadeOut(200);
+    }
+
+    this.slideIn = function (selector){
+        $(selector).css("left", "500px");
+
+        $(selector).animate({ "left": "0px" }, { duration: 200, queue: false }, "easeOutExpo" );
+        $(selector).fadeIn(500);
     }
 
     this.navigateTo = function (data) {
