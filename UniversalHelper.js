@@ -32,6 +32,11 @@ var UniversalHelper = (function () {
         }
     }
 
+    this.slideOut = function (selector){
+        $(selector).animate({ "left": "-=500px" }, "fast", "easein" );
+        $(selector).fadeIn(100);
+    }
+
     this.hideElements = function (selectors) {
         for (var i = 0; i < selectors.length; i++) {
             $(selectors[i]).hide();
