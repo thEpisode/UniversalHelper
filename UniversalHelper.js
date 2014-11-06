@@ -54,6 +54,11 @@ var UniversalHelper = (function () {
         window.location.assign(data);
     }
 
+    this.validateRegularExpression = function(expression, message){
+        var pattern = new RegExp(expression)
+        return pattern.test(message);
+    }
+
     /// Function used for generate internal exceptions into library
     /// Usage: 
     ///
