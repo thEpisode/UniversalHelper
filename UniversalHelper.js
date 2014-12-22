@@ -38,6 +38,18 @@ var UniversalHelper = (function () {
         }
     }
 
+    this.enableElements = function(selectors){
+        for (var i = 0; i < selectors.length; i++) {
+            $(selectors[i]).prop('disabled', false);            
+        };
+    }
+
+    this.disableElements = function(selectors){
+        for (var i = 0; i < selectors.length; i++) {
+            $(selectors[i]).prop('disabled', true);            
+        };
+    }
+
     this.slideOut = function (selector){
         $(selector).animate({ "left": "-500px" }, { duration: 500, queue: false }, "easeOutExpo" );
         $(selector).fadeOut(200);
