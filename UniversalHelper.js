@@ -22,8 +22,11 @@ var UniversalHelper = (function () {
         $(selectorTable).find('tbody>tr').remove();
     }
 
-    this.cleanSelect = function (selectorSelectTag) {
-        $(selectorSelectTag).find('option').remove();
+    this.cleanSelect = function (selectors) {
+        for (var i = 0; i < selectors.length; i++) {
+            $(selectors[i]).find('option').remove();
+        };
+        
     }
 
     this.showElements= function (selectors) {
@@ -41,13 +44,13 @@ var UniversalHelper = (function () {
     this.enableElements = function(selectors){
         for (var i = 0; i < selectors.length; i++) {
             $(selectors[i]).prop('disabled', false);            
-        };
+        }
     }
 
     this.disableElements = function(selectors){
         for (var i = 0; i < selectors.length; i++) {
             $(selectors[i]).prop('disabled', true);            
-        };
+        }
     }
 
     this.slideOut = function (selector){
