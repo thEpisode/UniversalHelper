@@ -83,6 +83,26 @@ var UniversalHelper = (function () {
        throw message; 
     }
 
+    this.GPSWatcher = function () {
+        options = {
+            enableHighAccuracy: false,
+            timeout: 5000,
+            maximumAge: 0
+        };
+
+        if ("geolocation" in navigator) {
+            /* geolocation is available */
+            var watchID = navigator.geolocation.watchPosition(function (position) {
+                $(document).trigger("GPSPositionChanged", [position.coords.latitude, position.coords.longitude]);
+            }, function (err) {
+                $(document).trigger('GPSMessage', 'Usted debe habilitar el GPS para usar esta aplicación.');
+            }, options);
+        } else {
+            /* geolocation IS NOT available */
+            $(document).trigger('GPSMessage', 'Su dispositivo no soporta GPS, por lo tanto no podrá usar esta aplicación.');
+        }
+    }
+
     return (this);
 
 }).call({});
