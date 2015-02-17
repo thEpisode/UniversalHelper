@@ -60,11 +60,11 @@ UniversalHelper.slideOut("#selector");
 
 ### GPS Watcher
 
-1. Initialize the engine
+* Initialize the engine
 ```js
 UniversalHelper.GPSWatcher();
 ```
-2. Catch the events emitted by UniversalHelper
+* Catch the events emitted by UniversalHelper
 ```js
 $(document).on("GPSPositionChanged", function (event, latitude, longitude) {
     console.log(latitude + " - " + longitude);
